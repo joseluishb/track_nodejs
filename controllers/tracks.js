@@ -1,12 +1,17 @@
+const { tracksModel } = require("../models");
+
 /**
  * Obtener lista de la base de datos!
  * @param {*} req
  * @param {*} res
  */
-const getItems = (req, res) => {
-  const data = ["hola", "mundo"];
+const getItems = async (req, res) => {
+  const data = await tracksModel.find({});
+  console.log(data);
 
-  res.send({ data });webpancho 
+  //data = 'oo';
+
+  res.send({ data }); 
 
 };
 
@@ -23,7 +28,11 @@ const getItem = (req, res) => {
  * @param {*} req
  * @param {*} res
  */
-const createItem = (req, res) => {
+const createItem = async (req, res) => {
+  const { body } = req;
+  console.log(body);
+  const data = await tracksModel.create(body);
+  res.send({data});
 };
 /**
  * Actualizar un registro

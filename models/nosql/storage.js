@@ -1,17 +1,17 @@
 const mongoose = require("mongoose");
 
-const UserScheme = new mongoose.Schema(
+const StorageScheme = new mongoose.Schema(
   {
     url: {
       type: String,
-    },  
+    },
     filename: {
       type: String,
       unique: true,
-    }
+    },
   },
   {
-    timestamps: true, 
+    timestamps: true,
     versionKey: false,
   }
 );
