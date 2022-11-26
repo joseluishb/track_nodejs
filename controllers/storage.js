@@ -37,8 +37,8 @@ const createItem = async (req, res) => {
     url:`${PUBLIC_URL}/${file.filename}`
   }
 
-  const data = await storageModel.create(filData);
-  res.send({file});
+  const data = await storageModel.create(fileData);
+  res.send({ data });
 };
 /**
  * Actualizar un registro
