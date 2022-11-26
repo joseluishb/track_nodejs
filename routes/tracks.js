@@ -1,7 +1,6 @@
 const express = require('express');
 const { validatorCreateItem } = require("../validators/tracks");
 const { getItems, getItem, createItem } = require('../controllers/tracks');
-const customHeader = require('../middleware/customHeader');
 
 const router = express.Router();
 
@@ -10,7 +9,7 @@ const router = express.Router();
 
 
 router.get("/", getItems);
-router.post("/", validatorCreateItem, customHeader, createItem);
+router.post("/", validatorCreateItem, createItem);
 
 
 module.exports = router;
