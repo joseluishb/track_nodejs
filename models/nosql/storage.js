@@ -16,5 +16,5 @@ const StorageScheme = new mongoose.Schema(
   }
 );
 
-TracksScheme.plugin(mongooseDelete, { overrideMethods: "all" });
+StorageScheme.plugin(mongooseDelete, { overrideMethods: "all" });
 module.exports = mongoose.model("storages", StorageScheme);
