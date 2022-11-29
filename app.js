@@ -3,7 +3,6 @@ const express = require("express");
 const cors = require("cors");
 const morganBody = require("morgan-body");
 
-const dbConnect = require('./config/mongo');
 const loggerStream = require("./utils/handleLogger");
 
 const dbConnectNoSql = require("./config/mongo");

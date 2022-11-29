@@ -1,5 +1,17 @@
 const request = require("supertest");
 const app = require("../app");
+const { usersModel } = require("../models");
+
+/**
+ * Se va a ejecutar antes de las pruebas
+ */
+beforeAll(async () => {
+  await usersModel.deleteMany({});
+});
+
+  afterAll(async () => {
+    
+  });
 
 const testAuthLogin = {
   email: "test1@example.com",
