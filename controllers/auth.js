@@ -40,7 +40,7 @@ const registerCtrl = async (req, res) => {
     try{
       req = matchedData(req);
       const user = await usersModel.findOne({email:req.email})
-      .select('password name role email');
+      
       if(!user) {
         handleHttpError(res, "USER_NOT_EXISTS", 404);
         return;
