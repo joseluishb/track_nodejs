@@ -12,13 +12,19 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: "http://localhost:3001/api",
+      url: "http://localhost:3100/api",
     },
     {
       url: "https://afternoon-journey-32165.herokuapp.com/api",
     },
   ],
   components: {
+    securitySchemes: {
+      bearerAuth: {
+        type: "http",
+        scheme: "bearer",
+      },
+    },
     schemas: {
       authLogin: {
         type: "object",
