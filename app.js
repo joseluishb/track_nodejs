@@ -9,6 +9,9 @@ const loggerStream = require("./utils/handleLogger");
 const dbConnectNoSql = require("./config/mongo");
 const { dbConnectMySql } = require("./config/mysql");
 
+const swaggerUI = require("swagger-ui-express");
+const openApiConfigration = require('./docs/swagger')
+
 const app = express();
 
 const ENGINE_DB = process.env.ENGINE_DB;
@@ -26,6 +29,16 @@ morganBody(app, {
 })
 
 const port = process.env.PORT || 3000;
+
+/**
+ * Definir ruta de documentación
+ */
+
+app.use(
+  "/documentation",
+  swaggerUI.serve,
+  swaggerUI.setup(openApiConfigration)
+);
 
 /**
  * Aquí invocamos a la rutas
