@@ -48,6 +48,8 @@ const registerCtrl = async (req, res) => {
       }
 
       const hashPassword = user.get("password");
+      console.log(user);
+      console.log(user.get("email"));
       const check = await compare(req.password, hashPassword);
 
       if(!check) {

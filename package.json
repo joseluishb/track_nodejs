@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node ./app.js",
     "dev": "nodemon ./app.js",
-    "test": "cross-env NODE_ENV=test jest --silent",
-    "test:watch": "cross-env NODE_ENV=test jest --watch --silent"
+    "test": "cross-env NODE_ENV=test jest --silent --coverage --runInBand",
+    "test:watch": "cross-env NODE_ENV=test jest --coverage --watch --silent --runInBand"
   },
   "keywords": [],
   "author": "",
@@ -39,6 +39,7 @@
     "coveragePathIgnorePatterns": [
       "/node_modules/"
     ],
-    "globalTeardown": "./globak-kill.js"
+    "globalTeardown": "./globak-kill.js",
+    "coverageReporters": ["json", "html"]
   }
 }

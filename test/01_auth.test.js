@@ -9,20 +9,23 @@ beforeAll(async () => {
   await usersModel.deleteMany({});
 });
 
-  afterAll(async () => {
-    
-  });
+afterAll(async () => {});
 
 const testAuthLogin = {
-  email: "testi1@example.com",
+  email: "test1@test.com",
+  password: "1234567",
+};
+
+const testAuthLogin2 = {
+  email: "test@test.com",
   password: "12345678",
 };
 
 const testAuthRegister = {
   name: "Papo",
   age: 30,
-  email: "papo@gmal.com",
-  password: "stri12345678ng",
+  email: "test@test.com",
+  password: "12345678",
 };
 
 describe("[AUTH] esta es la prueba de /api/auth", () => {
@@ -41,5 +44,13 @@ describe("[AUTH] esta es la prueba de /api/auth", () => {
     expect(response.body).toHaveProperty("data");
     expect(response.body).toHaveProperty("data.token");
     expect(response.body).toHaveProperty("data.user");
+  });
+
+  test("Esto debería retornar 401", async () => {
+    const newTestAuthLogin = { ...testAuthLogin2, password: "22222222" };
+    const response = await request(app)
+      .post("/api/auth/login")
+      .send(newTestAuthLogin);
+    expect(response.statusCode).toEqual(401);
   });
 });
