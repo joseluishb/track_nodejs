@@ -14,7 +14,7 @@ beforeAll(async () => {
   });
 
 const testAuthLogin = {
-  email: "test1@example.com",
+  email: "testi1@example.com",
   password: "12345678",
 };
 
